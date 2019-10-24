@@ -1,0 +1,15 @@
+# Python:
+
+*.py[cod]
+*_x.py
+*.bak
+
+*_x.txt
+*.txt
+__pycache__/
+
+.DS_Store
+
+# System Log & others
+*.log
+*.pid
