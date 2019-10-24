@@ -22,10 +22,10 @@ def send_web_tx(request):
     web_id = request.POST.get('web_id', None)
     status = 1
     if web_id == '01':
-        url = 'http://127.0.0.1:8000/web_server/web_01/'
+        url = 'http://127.0.0.1:80/web_server/web_01/'
         page_name = 'web_01'
     elif web_id == '02':
-        url = 'http://127.0.0.1:8000/web_server/web_02/'
+        url = 'http://127.0.0.1:80/web_server/web_02/'
         page_name = 'web_02'
     elif web_id == '03':
         url = 'http://int.hbu.cn/index.asp'
@@ -133,11 +133,11 @@ def update_trans(request):
     page_dict_list = []
     page_dict = {}
     page_dict['page_name'] = 'web_01'
-    page_dict['url'] = 'http://127.0.0.1:8000/web_server/web_01/'
+    page_dict['url'] = 'http://127.0.0.1:80/web_server/web_01/'
     page_dict_list.append(page_dict)
     page_dict = {}
     page_dict['page_name'] = 'web_02'
-    page_dict['url'] = 'http://127.0.0.1:8000/web_server/web_02/'
+    page_dict['url'] = 'http://127.0.0.1:80/web_server/web_02/'
     page_dict_list.append(page_dict)
     page_dict = {}
     page_dict['page_name'] = 'index.asp'
@@ -249,11 +249,11 @@ def update_record(request):
     page_dict_list = []
     page_dict = {}
     page_dict['page_name'] = 'web_01'
-    page_dict['url'] = 'http://127.0.0.1:8000/web_server/web_01/'
+    page_dict['url'] = 'http://127.0.0.1:80/web_server/web_01/'
     page_dict_list.append(page_dict)
     page_dict = {}
     page_dict['page_name'] = 'web_02'
-    page_dict['url'] = 'http://127.0.0.1:8000/web_server/web_02/'
+    page_dict['url'] = 'http://127.0.0.1:80/web_server/web_02/'
     page_dict_list.append(page_dict)
     page_dict = {}
     page_dict['page_name'] = 'index.asp'
