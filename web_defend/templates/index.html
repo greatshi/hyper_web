@@ -209,7 +209,7 @@
                     <div class="controls">
                       <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
                       <a href="#" class="remove"><i class="fa fa-times"></i></a>
-                      <div id="mine_btn"><button class="btn btn-primary" data-loading-text="Changing" type="button">Mine</button></div>
+                      <div id="mine_btn"><button class="btn btn-primary" data-loading-text="Changing" type="button">模拟攻击</button></div>
                     </div>
                   </div>
                   <!-- /tile header -->
@@ -231,7 +231,7 @@
                         <tbody>
                           <tr>
                             <td>1</td>
-                            <td id="web_01_name">web_01</td>
+                            <td id="web_01_name"><a href="/web_server/web_01/">web_01</a></td>
                             <td id="web_01_status" class="color-green priority">safe status</td>
                             <td class="progress-cell">
                               <div class="progress-info">
@@ -246,7 +246,7 @@
                           </tr>
                           <tr>
                             <td>2</td>
-                            <td id="web_02_name">web_02</td>
+                            <td id="web_02_name"><a href="/web_server/web_02/">web_02</a></td>
                             <td id="web_02_status" class="color-green priority">safe status</td>
                             <td class="progress-cell">
                               <div class="progress-info">
@@ -256,7 +256,7 @@
                                 <div class="progress-bar progress-bar-transparent-white animate-progress-bar" data-percentage="3%" id="web_02_bar"></div>
                               </div>
                             </td>
-                            <td class="col-md-1"><div id="web_02_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">Change</button></div></td>
+                            <td class="col-md-1"><div id="web_02_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">更新</button></div></td>
                             <td class="col-md-1"><div id="web_02_get_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">查看</button></div></td>
                           </tr>
                           <tr>
@@ -271,7 +271,7 @@
                                 <div class="progress-bar progress-bar-transparent-white animate-progress-bar" data-percentage="7%" id="web_03_bar"></div>
                               </div>
                             </td>
-                            <td class="col-md-1"><div id="web_03_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">Change</button></div></td>
+                            <td class="col-md-1"><div id="web_03_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">更新</button></div></td>
                           </tr>
                           <tr>
                             <td>4</td>
@@ -285,7 +285,7 @@
                                 <div class="progress-bar progress-bar-transparent-white animate-progress-bar" data-percentage="3%" id="web_04_bar"></div>
                               </div>
                             </td>
-                            <td class="col-md-1"><div id="web_04_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">Change</button></div></td>
+                            <td class="col-md-1"><div id="web_04_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">更新</button></div></td>
                           </tr>
                           <tr>
                             <td>5</td>
@@ -299,7 +299,7 @@
                                 <div class="progress-bar progress-bar-transparent-white animate-progress-bar" data-percentage="9%" id="web_05_bar"></div>
                               </div>
                             </td>
-                            <td class="col-md-1"><div id="web_05_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">Change</button></div></td>
+                            <td class="col-md-1"><div id="web_05_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">更新</button></div></td>
                           </tr>
                           <tr>
                             <td>6</td>
@@ -313,7 +313,7 @@
                                 <div class="progress-bar progress-bar-transparent-white animate-progress-bar" data-percentage="9%"  id="web_06_bar"></div>
                               </div>
                             </td>
-                            <td class="col-md-1"><div id="web_06_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">Change</button></div></td>
+                            <td class="col-md-1"><div id="web_06_btn"><button class="btn btn-danger" data-loading-text="Changing" type="button">更新</button></div></td>
                           </tr>
                         </tbody>
                       </table>
@@ -639,7 +639,7 @@
           for(var i=0; i<typeData.length; i++){
             var name = typeData[i].page_name;
             if(name == 'web_01'){
-              $("#web_01_name").html(name);
+              // $("#web_01_name").html(name);
               $("#web_01_status").removeClass();
               $("#web_01_bar").width(typeData[i].page_balance + '%');
               $("#web_01_per").html(typeData[i].page_balance);
@@ -654,7 +654,7 @@
               }
             }
             if(name == 'web_02'){
-              $("#web_02_name").html(name);
+              // $("#web_02_name").html(name);
               $("#web_02_status").removeClass();
               $("#web_02_bar").width(typeData[i].page_balance + '%');
               $("#web_02_per").html(typeData[i].page_balance);
@@ -801,14 +801,12 @@
      $.ajax({
        type: "post",
        dataType: "json",
-       url: "/miner/",
-       data: {'action': 'mine'},
-       success: function(data) {
-           var typeData = data;
-           for(var i=0; i<typeData.length; i++){
-             var message = typeData[i].message;
-             alert(message);
-           }
+       url: "/api/v1/",
+       data: {'method': 'test_attack'},
+       success: function(info) {
+           var typeData = info.data;
+           console.log(typeData);
+           alert(typeData);
        },
        error: function(data) {
          //alert("加载失败1");

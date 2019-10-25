@@ -23,6 +23,8 @@ def web_api_v1(request):
         status, data = process.update_trans(request)
     elif (method == 'update_record'):
         status, data = process.update_record(request)
+    elif (method == 'test_attack'):
+        status, data = process.test_attack(request)
     else:
         method = request.GET.get('method', None)
         if (method == 'update_one_record'):

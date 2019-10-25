@@ -305,6 +305,15 @@ def update_record(request):
     return status, data
 
 
+def test_attack(request):
+    status = 1
+    new_msg = '<h1>REG TEST PAGE...ATTACK: {}</h1>'.format(random.randint(1, 7777))
+    with open('web_server/templates/reg.html', 'w') as f:
+        f.write(new_msg)
+    data = '已经攻击～'
+    return status, data
+
+
 def get_one_tx(request):
     tx_id = request.GET.get('tx_id', '')
     tx_id = ObjectId(tx_id)
